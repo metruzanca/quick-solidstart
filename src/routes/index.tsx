@@ -10,14 +10,26 @@ export const route = {
 export default function Home() {
   const user = createAsync(async () => getUser(), { deferStream: true });
   return (
-    <main class="w-full p-4 space-y-2">
-      <h2 class="font-bold text-blue-500 text-3xl">Hello {user()?.username}</h2>
-      <h3 class="font-bold text-green-500 text-xl">Message board</h3>
-      <form action={logout} method="post">
-        <button name="logout" type="submit">
-          Logout
-        </button>
-      </form>
+    <main class="w-full p-4">
+      <div class="card bg-base-100 shadow-xl max-w-2xl mx-auto">
+        <div class="card-body">
+          <h2 class="card-title text-3xl text-primary">
+            Hello {user()?.username}
+          </h2>
+          <h3 class="text-xl font-semibold text-secondary">Message board</h3>
+          <div class="card-actions justify-end mt-4">
+            <form action={logout} method="post">
+              <button
+                name="logout"
+                type="submit"
+                class="btn btn-outline btn-error"
+              >
+                Logout
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }

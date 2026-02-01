@@ -7,10 +7,20 @@ import "./app.css";
 export default function App() {
   return (
     <Router
-      root={props => (
+      root={(props) => (
         <>
-          <a href="/">Index</a>
-          <a href="/about">About</a>
+          <div class="navbar bg-base-200">
+            <div class="navbar-start">
+              <a href="/" class="btn btn-ghost text-xl">
+                Index
+              </a>
+            </div>
+            <div class="navbar-end">
+              <a href="/about" class="btn btn-ghost">
+                About
+              </a>
+            </div>
+          </div>
           <Suspense>{props.children}</Suspense>
         </>
       )}
